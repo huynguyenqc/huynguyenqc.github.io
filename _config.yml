@@ -21,13 +21,12 @@
 title: Huy Nguyen - Projects and Publications
 email: hqnguyen@jaist.ac.jp
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  This site contains the source code and demo used in my research 
+  projects and publications.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+# twitter_username: huynguyenqc
+github_username: huynguyenqc
 
 # Build settings
 theme: minima
