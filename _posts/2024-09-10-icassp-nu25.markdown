@@ -1,0 +1,113 @@
+---
+layout: post
+title:  "Phase-aware Noise Suppression via Instantaneous Frequency Deviation Enhancement"
+date:   2024-09-10 13:27 +0900
+categories: jekyll update
+---
+
+## Source code
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+<a href="https://github.com/huynguyenqc/SE-IFD"><i class="fab fa-github" style='font-size:30px'></i> huynguyenqc@SE-IFD</a>
+
+
+## Audio demo (from Valentini et al.'s test set)
+{% assign fileNameList = "sample_0,sample_1,sample_2,sample_3,sample_4,sample_5,sample_6,sample_7,sample_8,sample_9,sample_10,sample_11,sample_12,sample_13" | split:"," %}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-1 center-block" style="border-bottom: solid 1px black;"><div class="table-header">Sample</div></div>
+    <div class="col-2 center-block noisy-column" style="border-bottom: solid 1px black;"><div class="table-header">Noisy</div></div>
+    <div class="col-2 center-block enhanced-column-1" style="border-bottom: solid 1px black;"><div class="table-header">Wiener filter (noisy phase)</div></div>
+    <div class="col-2 center-block enhanced-column-2" style="border-bottom: solid 1px black;"><div class="table-header">Wiener filter + IFD enhancement</div></div>
+    <div class="col-2 center-block clean-column" style="border-bottom: solid 1px black;"><div class="table-header">Clean</div></div>
+  </div>
+  {% for fileName in fileNameList %}
+  <div class="row">
+    <div class="col-1 center-block" align="center"><div class="vertical-center" style="text-align: center;">{{ fileName }}</div></div>
+    <div class="col-2 center-block noisy-column" align="center"><audio class="audio-demo" controls="control" src="/assets/audios/demo_samples_icassp25_nu/noisy/{{ fileName }}.wav" ></audio></div>
+    <div class="col-2 center-block enhanced-column-1" align="center"><audio class="audio-demo" controls="control" src="/assets/audios/demo_samples_icassp25_nu/wiener/{{ fileName }}.wav"></audio></div>
+    <div class="col-2 center-block enhanced-column-2" align="center"><audio class="audio-demo" controls="control" src="/assets/audios/demo_samples_icassp25_nu/ifd/{{ fileName }}.wav"></audio></div>
+    <div class="col-2 center-block clean-column" align="center"><audio class="audio-demo" controls="control" src="/assets/audios/demo_samples_icassp25_nu/clean/{{ fileName }}.wav"></audio></div>
+  </div>
+  {% endfor %}
+</div>
+<style>
+    .table-header {
+        text-align: center;
+        font-weight: bold;
+    }
+    .audio-demo {
+        width: 100%;
+    }
+    .noisy-column {
+        background-color: #d7ded9;
+    }
+    .enhanced-column-1 {
+        background-color: #c6f7d4;
+    }
+    .enhanced-column-2 {
+        background-color: #d6f7e4;
+    }
+    .enhanced-column-3 {
+        background-color: #e6f7f4;
+    }
+    .clean-column {
+        background-color: #c2c6ed;
+    }
+    div.col-2{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    div.col-1{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .vertical-center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+    .jekyll-linkpreview-wrapper {
+        max-width: 600px;
+        margin-bottom: 20px;
+    }
+    .jekyll-linkpreview-wrapper-inner {
+        border: 1px solid rgba(0,0,0,.1);
+        padding: 12px;
+    }
+    .jekyll-linkpreview-content {
+        position: relative;
+        height: 100px;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+    .jekyll-linkpreview-image {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    .jekyll-linkpreview-image img {
+        width: 100px;
+        height: 100px;
+    }
+    .jekyll-linkpreview-body {
+        margin-right: 110px;
+    }
+    .jekyll-linkpreview-body-nog {
+        margin-right: 10px;
+    }
+    .jekyll-linkpreview-title {
+        font-size: 17px;
+        margin: 0 0 2px;
+        line-height: 1.3;
+    }
+    .jekyll-linkpreview-description {
+        line-height: 1.5;
+        font-size: 13px;
+    }
+    .jekyll-linkpreview-footer {
+        font-size: 11px;
+    }
+</style>
